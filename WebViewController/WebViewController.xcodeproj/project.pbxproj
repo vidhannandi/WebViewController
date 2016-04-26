@@ -63,9 +63,9 @@
 		3CF73CBC1CCF32EC00139685 /* WebViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3CF73CD91CCF877800139685 /* WebViewController */,
 				3CF73CC01CCF32EC00139685 /* AppDelegate.h */,
 				3CF73CC11CCF32EC00139685 /* AppDelegate.m */,
-				3CF73CD91CCF877800139685 /* WebViewController */,
 				3CF73CC31CCF32EC00139685 /* ViewController.h */,
 				3CF73CC41CCF32EC00139685 /* ViewController.m */,
 				3CF73CC61CCF32EC00139685 /* Main.storyboard */,
@@ -320,6 +320,7 @@
 				3CF73CD31CCF32EC00139685 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

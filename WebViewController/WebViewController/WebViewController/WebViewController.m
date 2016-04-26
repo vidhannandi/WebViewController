@@ -13,7 +13,7 @@
 #define ForwardImage [UIImage imageNamed:@"Forward"]
 #define GoogleString @"https://www.google.co.in/search?q="
 
-@interface WebViewController ()<UIWebViewDelegate, UISearchBarDelegate>{
+@interface WebViewController ()<UIWebViewDelegate, UISearchBarDelegate, UIScrollViewDelegate>{
    
     // LocalVariables
     UIWebView *webView;
@@ -54,16 +54,20 @@
     [self setupWebView];
     [self updateNavigationButtons];
     [self loadRequestWithString:self.urlString];
+    [self.navigationController setHidesBarsOnSwipe:true];
 }
 - (void)setupWebView{
     webView = [[UIWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [webView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     [webView.scrollView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     [webView setDelegate:self];
+    [webView.scrollView setDelegate:self];
     [webView setScalesPageToFit:true];
     [webView setDataDetectorTypes:UIDataDetectorTypeAll];
     [webView setAllowsPictureInPictureMediaPlayback:true];
     [webView setClearsContextBeforeDrawing:true];
+    [webView.scrollView setShowsHorizontalScrollIndicator:false];
+    [webView.scrollView setShowsVerticalScrollIndicator:false];
     [self.view addSubview:webView];
 }
 - (void)setupSearchBar{
@@ -140,6 +144,18 @@
     [alertController addAction:cancel];
     [self presentViewController:alertController animated:true completion:nil];
 }
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView NS_AVAILABLE_IOS(3_2){
+    if ([urlBar isFirstResponder]) {
+        [urlBar resignFirstResponder];
+    }
+}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    if ([urlBar isFirstResponder]) {
+        [urlBar resignFirstResponder];
+    }
+}
+
 #pragma mark - SearchBar Delegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     NSString *url = searchBar.text;
