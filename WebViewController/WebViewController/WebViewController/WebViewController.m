@@ -27,8 +27,9 @@
 @implementation WebViewController
 
 #pragma mark - Life Cycle
-- (void)viewDidLoad {
-    [super viewDidLoad];
+
+- (void)loadView{
+    [super loadView];
     [self setupView];
 }
 - (void)dealloc
@@ -72,8 +73,8 @@
     [urlBar setDelegate:self];
     [urlBar setShowsBookmarkButton:true];
     self.navigationItem.titleView = urlBar;
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithImage:BackImage style:UIBarButtonItemStyleDone target:self action:@selector(closeAction:)];
-    self.navigationItem.leftBarButtonItem = barButtonItem;
+    UIBarButtonItem *barButtonItem =  [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(closeAction:)];
+    self.navigationItem.rightBarButtonItem = barButtonItem;
 }
 - (void)setupToolBar{
     [self.navigationController setToolbarHidden:false];
@@ -193,7 +194,7 @@
     [webView goForward];
 }
 - (IBAction)closeAction:(id)sender {
-    [self.navigationController popViewControllerAnimated:true];
+        [self dismissViewControllerAnimated:true completion:nil];
 }
 
 /*

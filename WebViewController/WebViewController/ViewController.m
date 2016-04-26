@@ -27,7 +27,8 @@
 - (IBAction)showWebView:(id)sender {
     WebViewController *webView = [[WebViewController alloc] init];
     webView.urlString = @"https://www.apple.com";
-    [self.navigationController pushViewController:webView animated:true];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:webView];
+    [self presentViewController:nav animated:true completion:nil];
 }
 
 @end
