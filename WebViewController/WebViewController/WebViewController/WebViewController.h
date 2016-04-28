@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface WebViewController : UIViewController
++ (id)getWebViewWithUrlString:(NSString *)urlString;
 @property (nonatomic, weak) NSString *urlString;
 @end

@@ -25,10 +25,8 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)showWebView:(id)sender {
-    WebViewController *webView = [[WebViewController alloc] init];
-    webView.urlString = @"https://www.apple.com";
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:webView];
-    [self presentViewController:nav animated:true completion:nil];
+
+    [self presentViewController:[WebViewController getWebViewWithUrlString:@"https://www.apple.com"] animated:true completion:nil];
 }
 
 @end

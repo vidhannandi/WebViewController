@@ -5,17 +5,19 @@
 //  Created by Vidhan Nandi on 26/04/16.
 //  Copyright © 2016 VNTech. All rights reserved.
 //
-
+@import WebKit;
 #import "WebViewController.h"
-#define ReloadImage [UIImage imageNamed:@"Reload"]
-#define StopImage [UIImage imageNamed:@"Stop"]
-#define BackImage [UIImage imageNamed:@"Back"]
-#define ForwardImage [UIImage imageNamed:@"Forward"]
+
+#define ReloadImage [UIImage imageNamed:@"reload"]
+#define StopImage [UIImage imageNamed:@"stop"]
+#define BackImage [UIImage imageNamed:@"back"]
+#define ForwardImage [UIImage imageNamed:@"forward"]
 #define GoogleString @"https://www.google.co.in/search?q="
 
 @interface WebViewController ()<UIWebViewDelegate, UISearchBarDelegate, UIScrollViewDelegate>{
    
     // LocalVariables
+    WKWebView *web ;
     UIWebView *webView;
     UISearchBar *urlBar;
     UIBarButtonItem *backButton;
@@ -25,9 +27,14 @@
 @end
 
 @implementation WebViewController
-
+#pragma mark - Class Method
++ (id)getWebViewWithUrlString:(NSString *)urlString{
+    WebViewController *webView = [[WebViewController alloc] init];
+    webView.urlString = urlString;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:webView];
+    return nav;
+}
 #pragma mark - Life Cycle
-
 - (void)loadView{
     [super loadView];
     [self setupView];
@@ -54,12 +61,9 @@
     [self setupWebView];
     [self updateNavigationButtons];
     [self loadRequestWithString:self.urlString];
-    [self.navigationController setHidesBarsOnSwipe:true];
 }
 - (void)setupWebView{
     webView = [[UIWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [webView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
-    [webView.scrollView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     [webView setDelegate:self];
     [webView.scrollView setDelegate:self];
     [webView setScalesPageToFit:true];
@@ -68,6 +72,7 @@
     [webView setClearsContextBeforeDrawing:true];
     [webView.scrollView setShowsHorizontalScrollIndicator:false];
     [webView.scrollView setShowsVerticalScrollIndicator:false];
+    [webView setClipsToBounds:true];
     [self.view addSubview:webView];
 }
 - (void)setupSearchBar{
@@ -204,6 +209,9 @@
 }
 - (IBAction)shareAction:(id)sender {
     UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:@[urlBar.text] applicationActivities:nil];
+    if ( [activityController respondsToSelector:@selector(popoverPresentationController)] ) {
+        activityController.popoverPresentationController.barButtonItem = sender;
+    }
     [self presentViewController:activityController animated:YES completion:nil];
 }
 - (IBAction)forwardAction:(id)sender {

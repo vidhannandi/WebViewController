@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CD01D0F1CD0880000F2CDCD /* WebView.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD01D0E1CD0880000F2CDCD /* WebView.xcassets */; };
 		3CF73CBF1CCF32EC00139685 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF73CBE1CCF32EC00139685 /* main.m */; };
 		3CF73CC21CCF32EC00139685 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF73CC11CCF32EC00139685 /* AppDelegate.m */; };
 		3CF73CC51CCF32EC00139685 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF73CC41CCF32EC00139685 /* ViewController.m */; };
@@ -14,11 +15,11 @@
 		3CF73CCA1CCF32EC00139685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF73CC91CCF32EC00139685 /* Assets.xcassets */; };
 		3CF73CCD1CCF32EC00139685 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF73CCB1CCF32EC00139685 /* LaunchScreen.storyboard */; };
 		3CF73CE01CCF877800139685 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF73CDE1CCF877800139685 /* WebViewController.m */; };
-		3CF73CE21CCF8F8A00139685 /* WebViewControllerAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF73CE11CCF8F8A00139685 /* WebViewControllerAssets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3CF73CBA1CCF32EC00139685 /* WebViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CD01D0E1CD0880000F2CDCD /* WebView.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = WebView.xcassets; sourceTree = "<group>"; };
+		3CF73CBA1CCF32EC00139685 /* Web View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Web View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF73CBE1CCF32EC00139685 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3CF73CC01CCF32EC00139685 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CF73CC11CCF32EC00139685 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -30,7 +31,6 @@
 		3CF73CCE1CCF32EC00139685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CF73CDD1CCF877800139685 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		3CF73CDE1CCF877800139685 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		3CF73CE11CCF8F8A00139685 /* WebViewControllerAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = WebViewControllerAssets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,7 @@
 		3CF73CBB1CCF32EC00139685 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3CF73CBA1CCF32EC00139685 /* WebViewController.app */,
+				3CF73CBA1CCF32EC00139685 /* Web View.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,9 +88,9 @@
 		3CF73CD91CCF877800139685 /* WebViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3CF73CE11CCF8F8A00139685 /* WebViewControllerAssets.xcassets */,
 				3CF73CDD1CCF877800139685 /* WebViewController.h */,
 				3CF73CDE1CCF877800139685 /* WebViewController.m */,
+				3CD01D0E1CD0880000F2CDCD /* WebView.xcassets */,
 			);
 			path = WebViewController;
 			sourceTree = "<group>";
@@ -112,7 +112,7 @@
 			);
 			name = WebViewController;
 			productName = WebViewController;
-			productReference = 3CF73CBA1CCF32EC00139685 /* WebViewController.app */;
+			productReference = 3CF73CBA1CCF32EC00139685 /* Web View.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -152,8 +152,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CF73CE21CCF8F8A00139685 /* WebViewControllerAssets.xcassets in Resources */,
 				3CF73CCD1CCF32EC00139685 /* LaunchScreen.storyboard in Resources */,
+				3CD01D0F1CD0880000F2CDCD /* WebView.xcassets in Resources */,
 				3CF73CCA1CCF32EC00139685 /* Assets.xcassets in Resources */,
 				3CF73CC81CCF32EC00139685 /* Main.storyboard in Resources */,
 			);
@@ -285,7 +285,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.VNTech.WebViewController;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Web View";
 			};
 			name = Debug;
 		};
@@ -297,7 +297,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.VNTech.WebViewController;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Web View";
 			};
 			name = Release;
 		};
